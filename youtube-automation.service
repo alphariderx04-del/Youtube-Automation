@@ -1,0 +1,16 @@
+[Unit]
+Description=YouTube Upload Automation
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/youtube-automation
+ExecStart=/usr/bin/python3 /root/youtube-automation/main.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/root/youtube-automation/logs/service.log
+StandardError=append:/root/youtube-automation/logs/service_error.log
+
+[Install]
+WantedBy=multi-user.target
